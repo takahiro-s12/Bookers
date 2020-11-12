@@ -1,5 +1,5 @@
+<h1>Title</h1>
 <div class="books">
-  <h1>Books</h1>
   <div class="books-contents">
     <h4 class="books-contents-title">Title</h4>
     <div class="books-title-main">
@@ -16,9 +16,21 @@
       <% end %>
     </div>
   </div>
-  <% @books.each do |book| %>
-    <span><%= link_to "show", book_path(book.id) %></span>
-  <% end %>
+  <div clss="book-show">
+    <% @books.each do |book| %>
+      <span><%= link_to "Show", book_path(book.id) %></span>
+    <% end %>
+  </div>
+  <div class="book-edit">
+    <% @books.each do |book| %>
+      <span><%= link_to "Edit", edit_book_path(book.id) %></span>
+    <% end %>
+  </div>
+  <div class="book-delete">
+    <% @books.each do |book| %>
+      <span><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></span>
+    <% end %>
+  </div>
 </div>
 
 <h1>New book</h1>
