@@ -2,13 +2,23 @@
   <h1>Books</h1>
   <div class="books-contents">
     <h4 class="books-contents-title">Title</h4>
+    <div class="books-title-main">
+      <% @books.each do |book| %>
+        <span class="main-title"><%= book.title %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="books-contents-2">
     <h4 class="books-contents-body">Body</h4>
+    <div class="books-body-main">
+      <% @books.each do |book| %>
+        <span class="main-body"><%= book.body %></span>
+      <% end %>
+    </div>
   </div>
-  <div class="books-main">
-    <% @books.each do |book| %>
-      <span class="main-title"><%= book.title %></span>
-    <% end %>
-  </div>
+  <% @books.each do |book| %>
+    <span><%= link_to "show", book_path(book.id) %></span>
+  <% end %>
 </div>
 
 <h1>New book</h1>
